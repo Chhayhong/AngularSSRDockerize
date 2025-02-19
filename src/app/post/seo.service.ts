@@ -14,7 +14,7 @@ export class SeoService {
 
   getSeoData(productId: string) {
     const cachedData = this.transferState.get(SEO_DATA_KEY, null);
-    if (cachedData) {
+    if (cachedData && cachedData.id === productId) {
       return Promise.resolve(cachedData); // Return cached data on client
     }
 
