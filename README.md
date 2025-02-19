@@ -59,3 +59,5 @@ Angular CLI does not come with an end-to-end testing framework by default. You c
 For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
 # AngularSSRDockerize
 # AngularSSRDockerize
+
+<!-- openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout ./ssl/nginx.key -out ./ssl/nginx.crt -subj "/C=US/ST=State/L=City/O=Organization/CN=myweb.com" -->

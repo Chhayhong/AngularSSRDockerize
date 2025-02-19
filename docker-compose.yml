@@ -8,7 +8,9 @@ services:
     image: nginx:latest
     ports:
       - "80:80"
+      - "443:443"
     volumes:
       - ./nginx.conf:/etc/nginx/nginx.conf
+      - ./ssl:/etc/nginx/ssl:ro  # Add the ':ro' flag to make the volume read-only
     depends_on:
       - ng-ssr-app
