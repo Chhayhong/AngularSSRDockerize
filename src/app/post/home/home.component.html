@@ -1,0 +1,23 @@
+<div class="container">
+    <div class="navbar">
+        <a routerLink="/">Home</a>
+        <!-- <a routerLink="/about">About</a>
+        <a routerLink="/contact">Contact</a> -->
+    </div>
+    
+    <div class="product-detail">
+        <router-outlet />
+    </div>
+    <h2>Product List</h2>
+    <div class="product-list">
+        @for (item of this.products(); track $index) {
+        <ul>
+         <div class="item">
+            <li><p class="truncat">{{item.title}}</p></li>
+            <img [src]="item.image" width="50">
+            <a [routerLink]="[item.id]">View Details</a>
+         </div>
+        </ul>
+        }
+    </div>
+</div>
