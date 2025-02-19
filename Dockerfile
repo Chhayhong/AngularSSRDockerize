@@ -1,9 +1,9 @@
 FROM node:18-alpine AS build
 WORKDIR /app/src
-COPY package*.json ./
-RUN npm ci
+# COPY package*.json ./
+# RUN npm ci
 COPY . ./
-RUN npm run build
+# RUN npm run build
 
 FROM node:18-alpine
 WORKDIR /usr/app
