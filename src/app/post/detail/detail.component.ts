@@ -2,6 +2,7 @@ import { CurrencyPipe } from '@angular/common';
 import { Component, signal } from '@angular/core';
 import { Meta, Title } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
+import { SeoService } from '../seo.service';
 
 interface Product {
   id: number;
@@ -17,38 +18,34 @@ interface Product {
   imports: [CurrencyPipe],
   templateUrl: './detail.component.html',
   styleUrl: './detail.component.scss',
+  providers:[SeoService]
 })
 export class DetailComponent {
   selectedProduct = signal<Product | null>(null);
   subscription: any;
   constructor(
+    private seoService: SeoService, 
     private readonly meta: Meta,
     private readonly title: Title,
     private readonly route: ActivatedRoute
   ) {}
 
   ngOnInit() {
-   
-  }
+    const productID = this.route.snapshot.paramMap.get('id');
+    this.seoService.getSeoData(productID as string).then(seoData => {
+      this.selectedProduct.set(seoData);
+      this.updateMeta();
+    });
 
-  ngAfterViewInit() {
     this.subscription = this.route.params.subscribe((params) => {
-      const productID = this.route.snapshot.paramMap.get('id');
-      this.onSelectedProduct(productID as string);
+      // this.onSelectedProduct(productID as string);
+      // this.updateMeta();
     });
   }
   ngOnDestroy() {
     this.subscription.unsubscribe();
   }
 
-  onSelectedProduct(id: string) {
-    fetch(`https://fakestoreapi.com/products/${id}`)
-      .then((res) => res.json())
-      .then((json) => {
-        this.selectedProduct.set(json);
-        this.updateMeta();
-      });
-  }
   updateMeta() {
     if(!this.selectedProduct()){
       this.title.setTitle('Loading...')
