@@ -21,8 +21,8 @@ export default {
 ],
   entryPointToBrowserMapping: undefined,
   assets: {
-    'index.csr.html': {size: 466, hash: 'b7869f33ec312cb9f11bf10dfa5108e78e270e432e5d8faf59c4db1b9dce83c6', text: () => import('./assets-chunks/index_csr_html.mjs').then(m => m.default)},
-    'index.server.html': {size: 979, hash: 'e6367e07e38326fc758ad40e97affc45918aff71f78840182beb75c795438d5b', text: () => import('./assets-chunks/index_server_html.mjs').then(m => m.default)},
+    'index.csr.html': {size: 466, hash: 'ce0d2a2da3c3cea83ff427e223db4a2ee64e4882d54a029f7d30af5e07c4e8df', text: () => import('./assets-chunks/index_csr_html.mjs').then(m => m.default)},
+    'index.server.html': {size: 979, hash: '19aff205640c4c82c60144e8ba0b785f009d0efdd0ba3da63a57b94204b36482', text: () => import('./assets-chunks/index_server_html.mjs').then(m => m.default)},
     'styles-5INURTSO.css': {size: 0, hash: 'menYUTfbRu8', text: () => import('./assets-chunks/styles-5INURTSO_css.mjs').then(m => m.default)}
   },
 };
