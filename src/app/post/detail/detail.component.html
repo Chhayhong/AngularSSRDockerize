@@ -2,11 +2,11 @@
     <div class="product">
         <h2>Previewing Product</h2>
         <div class="image">
-            <img [src]="this.selectedProduct()?.image" width="120" [alt]="this.selectedProduct()?.title" [title]="this.selectedProduct()?.price | currency:'USD':true">
+            <img [src]="this.selectedProduct()?.image" width="120" [alt]="this.selectedProduct()?.title" [title]="this.selectedProduct()?.price | currency:'USD':'symbol'">
         </div>
         <div class="card">
             <h3>Name: {{ this.selectedProduct()?.title }}</h3>
-            <h4>Price: {{ this.selectedProduct()?.price | currency:'USD':true }}</h4>
+            <h4>Price: {{ this.selectedProduct()?.price | currency:'USD':'symbol' }}</h4>
         </div>
     </div>
 

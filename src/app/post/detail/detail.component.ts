@@ -31,15 +31,11 @@ export class DetailComponent {
   ) {}
 
   ngOnInit() {
-    const productID = this.route.snapshot.paramMap.get('id');
-    this.seoService.getSeoData(productID as string).then(seoData => {
-      this.selectedProduct.set(seoData);
-      this.updateMeta();
-    });
-
     this.subscription = this.route.params.subscribe((params) => {
-      // this.onSelectedProduct(productID as string);
-      // this.updateMeta();
+      this.seoService.getSeoData(params['id']).then(seoData => {
+        this.selectedProduct.set(seoData);
+        this.updateMeta();
+      });
     });
   }
   ngOnDestroy() {
