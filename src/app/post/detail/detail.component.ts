@@ -33,7 +33,6 @@ export class DetailComponent {
       this.onSelectedProduct(productID as string);
       this.updateMeta();
     });
-    this.updateMeta()
   }
   ngOnDestroy() {
     this.subscription.unsubscribe();
@@ -44,9 +43,14 @@ export class DetailComponent {
       .then((res) => res.json())
       .then((json) => {
         this.selectedProduct.set(json);
+        this.updateMeta();
       });
   }
   updateMeta() {
+    if(!this.selectedProduct()){
+      this.title.setTitle('Loading...')
+      return;
+    }
     this.title.setTitle(this.selectedProduct()?.title ?? 'error'); // Set the title tag
 
     this.meta.addTag({
