@@ -33,6 +33,7 @@ export class DetailComponent {
       this.onSelectedProduct(productID as string);
       this.updateMeta();
     });
+    this.updateMeta()
   }
   ngOnDestroy() {
     this.subscription.unsubscribe();
@@ -46,25 +47,24 @@ export class DetailComponent {
       });
   }
   updateMeta() {
-    this.title.setTitle(this.selectedProduct()?.title ?? ''); // Set the title tag
+    this.title.setTitle(this.selectedProduct()?.title ?? 'error'); // Set the title tag
 
     this.meta.addTag({
       name: 'description',
-      content: this.selectedProduct()?.description ?? '',
+      content: this.selectedProduct()?.description ?? 'error',
     });
     this.meta.addTag({
       property: 'og:title',
-      content: this.selectedProduct()?.title ?? '',
+      content: this.selectedProduct()?.title ?? 'error',
     }); // Open Graph tag
     this.meta.addTag({
       property: 'og:description',
-      content: this.selectedProduct()?.description ?? '',
+      content: this.selectedProduct()?.description ?? 'error',
     });
     this.meta.addTag({
       property: 'og:image',
       content:
-        this.selectedProduct()?.image ??
-        'https://static.vecteezy.com/system/resources/previews/011/537/738/non_2x/404-file-not-found-empty-state-single-isolated-icon-with-smooth-gradient-style-free-vector.jpg',
+        this.selectedProduct()?.image ?? 'error',
     }); // Open Graph image
     // ... other meta tags
   }

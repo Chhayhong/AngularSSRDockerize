@@ -2,7 +2,7 @@
     <div class="product">
         <h2>Previewing Product</h2>
         <div class="image">
-            <img [src]="this.selectedProduct()?.image" width="120" [title]="this.selectedProduct()?.price | currency:'USD':true">
+            <img [src]="this.selectedProduct()?.image" width="120" [alt]="this.selectedProduct()?.title" [title]="this.selectedProduct()?.price | currency:'USD':true">
         </div>
         <div class="card">
             <h3>Name: {{ this.selectedProduct()?.title }}</h3>
