@@ -28,10 +28,13 @@ export class DetailComponent {
   ) {}
 
   ngOnInit() {
+   
+  }
+
+  ngAfterViewInit() {
     this.subscription = this.route.params.subscribe((params) => {
       const productID = this.route.snapshot.paramMap.get('id');
       this.onSelectedProduct(productID as string);
-      this.updateMeta();
     });
   }
   ngOnDestroy() {
