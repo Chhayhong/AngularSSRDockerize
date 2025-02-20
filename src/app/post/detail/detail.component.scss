@@ -1,10 +1,12 @@
 .product{
     width: 75vw;
+    max-height: calc(100vh - 50vh);
     h2{
         text-align: center;
     }
     .image img{
-        width: 20vw;
+        // width: 20vw;
+        max-width: calc(100vw - 80vw);
         margin: 0 auto;
         display: flex;
     }
