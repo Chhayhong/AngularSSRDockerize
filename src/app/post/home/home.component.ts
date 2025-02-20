@@ -22,27 +22,5 @@ export class HomeComponent {
       .then((json) => {
         this.products.set(json);
       });
-
-      this.title.setTitle('QB Store - Home'); // Set the title tag
-      this.meta.addTag({
-        name: 'description',
-        content: 'Welcome to the QB Store! Explore our wide range of products.',
-      });
-      this.meta.addTag({
-        property: 'og:title',
-        content: 'QB Store - Home',
-      }); // Open Graph tag
-      this.meta.addTag({
-        property: 'og:description',
-        content: 'Welcome to the DB Store! Explore our wide range of products.',
-      });
-
-      this.meta.addTag({
-        property: 'og:image',
-        content:
-          'https://res.cloudinary.com/fortyfournorth/image/upload/v1710256288/The%20Look%20Company%20%28Staging%29/j2zi31lqofw1abqfrjux.jpg',
-      }); 
-
-
   }
 }
