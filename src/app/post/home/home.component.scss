@@ -27,10 +27,12 @@
   }
   
   .product-list {
+    display: flex;
     margin-top: 20px;
     max-height: 35vh;
     overflow-y: auto;
     .item{
+      margin: 10px;
         display: flex;
         justify-content: space-between;
     }
@@ -42,25 +44,27 @@
   
   .product-list ul {
     list-style-type: none;
-    padding: 0;
-    margin: 0;
+    padding: 5px;
     border: 1px solid #ddd;
     border-radius: 4px;
-    margin-bottom: 10px;
+    margin: 5px;
   }
-  
+  .product-list ul:hover{
+    background-color: #defadf;
+    cursor: pointer;
+  }
   .product-list li {
     padding: 10px;
   }
   
   .product-list a {
+    margin: 10px;
     display: inline-block;
     background-color: #4CAF50;
     color: #fff;
     text-decoration: none;
     padding: 10px 15px;
     border-radius: 4px;
-    margin-top: 10px;
     height: 20px;
   }
   
@@ -72,4 +76,9 @@
     overflow: hidden;
     text-overflow: ellipsis;
     max-width: 200px; /* Adjust the max-width value as needed */
+  }
+
+  .active {
+    background-color: #4CAF50;
+    color: #fff;
   }

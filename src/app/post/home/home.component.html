@@ -12,10 +12,9 @@
     <div class="product-list">
         @for (item of this.products(); track $index) {
         <ul>
-         <div class="item">
+         <div class="item" [routerLink]="[item.id]">
             <li><p class="truncat">{{item.title}}</p></li>
-            <img [src]="item.image" width="50">
-            <a [routerLink]="[item.id]">View Details</a>
+            <img [src]="item.image" width="50" [alt]="item.title">
          </div>
         </ul>
         }
