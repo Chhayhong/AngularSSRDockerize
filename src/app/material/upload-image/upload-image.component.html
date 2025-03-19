@@ -1,0 +1,6 @@
+<input type="file" accept="image/*" (change)="onFileSelected($event)" #fileInput class="hidden-file-input">
+<button (click)="onSelectUpload()">{{ buttonLabel() }}</button>
+<div *ngIf="imageUrl()">
+  <img [src]="imageUrl()" alt="Image Preview" style="max-width: 200px; max-height: 200px;">
+  <button (click)="clearImage()">Clear</button>
+</div>
