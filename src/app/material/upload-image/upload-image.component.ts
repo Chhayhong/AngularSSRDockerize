@@ -19,6 +19,8 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 })
 export class UploadImageComponent {
   imageUrl: WritableSignal<string | null> = signal(null);
+  imageMetaData: File | null = null;
+  @Input({transform:(value:number)=>signal(value)}) imgWith = signal(400);
   @Input({ transform: (value: string) => signal(value) }) buttonLabel: WritableSignal<string> = signal('Choose Image');
   private onChange: any = () => {};
   private onTouched: any = () => {};
@@ -43,6 +45,7 @@ export class UploadImageComponent {
 
   onFileSelected(event: any) {
     const file = event.target.files[0];
+    this.imageMetaData = file;
 
     if (file) {
       const reader = new FileReader();
@@ -66,4 +69,5 @@ export class UploadImageComponent {
     this.imageUrl.set(null);
     this.onChange(null); // Notify Angular Forms
   }
+  
 }
